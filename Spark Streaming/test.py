@@ -2,21 +2,14 @@ import numpy as np
 import tweepy
 # accessing the twitter API
 
-consumer_key = 'ujqZDsYNaxDr5o0NP5ebYMioH'
-consumer_secret = 'wdKwKxFYXGdTWlAeF6EnsAKnd2YKvkYedT659Rt8M0qViSyqSM'
-access_token = '1194778777894576128-SQeZJ39Z23hV164fkBAJnB001Sp7yZ'
-access_token_secret = 'cNdRczrHwOwBckrVapY4oiLFVp5Y5n0pyLDyOor1yP68d'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
-# importing data from afinn dict
-
-#sc = SparkContext()
-# create the Streaming Context from the above spark context with interval size 2 seconds
-#ssc = StreamingContext(sc, 2)
-# read data from port 9009
-#tweets = ssc.socketTextStream("localhost", 9009)
 
 class color:
     PURPLE = '\033[95m'
@@ -30,17 +23,12 @@ class color:
 
 
 d = {}
-file = open(r"/Users/yunqigao/Downloads/AFINN-en-165.txt")
-#file = open("gs://bigdata-quiz4/AFINN-en-165.txt", "r")
-#file = open("hdfs://user/gyq/AFINN-en-165.txt", "r")
+file = open(r"/AFINN-en-165.txt")
 for line in file:
     ' '.join(line.split())
     x = line.split()
     #print(x)
     d[x[0]] = int(x[len(x) - 1])
-
-#print(d)
-
 
 def checkKey(dict, key):
     if key in dict:
@@ -56,8 +44,6 @@ tweets = {}
 tweets = list()
 sumrate = 0
 num_item =100
-# importing tweets
-# demonitisation 2000
 for tweet in tweepy.Cursor(api.search, q='yunqi' + ' -RT', since="2019-09-01", lang="en").items(num_item):
     text = tweet.text.lower()
     for word in text.split():
