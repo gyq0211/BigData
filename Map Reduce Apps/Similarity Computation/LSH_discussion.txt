@@ -1,9 +1,0 @@
-Our treatment of similarity in the LSH discussion involved similar documents which could be compared as sets of shingles.
-
-Consider now the problem of code submission where multiple data analysis teams competing for a prize. The holder of the competition needs to make sure they have worked independently. There is one additional concern: teams may have copied from each other or a common source but changed the variable names before submitting.
-
-Explain why a simple change of variable names might throw a similarity search algorithm off.
-Suggest changes to slide 9 of the class lecture on LSH (Links to an external site.) that might be necessary to find algorithms that differ in their choice of variable names. (You may redraw the picture or just explain your changes in words).
-
-1. Because although the variable names have changed, the structure of the whole code is always the same. As a result, the similarity using sets of shingles will be a same value.
-2. We can use the location of each words as the signatures and convert each document into these location signatures. Divide the signature into bands and hash their portion of each column to a hash table with buckets. So, the candidate column pairs will hash to the same bucket. We can change all the variable names from different teams with some constant names defined by the holder, which will be able to catch most similar document.
