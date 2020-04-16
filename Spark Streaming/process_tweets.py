@@ -14,7 +14,7 @@ ssc = StreamingContext(sc, 2)
 # setting a checkpoint to allow RDD recovery
 ssc.checkpoint("checkpoint_TwitterApp")
 d = {}
-file = open(r"/Users/yunqigao/Downloads/AFINN-en-165.txt")
+file = open(r"/AFINN-en-165.txt")
 d = file.read()
 # read data from port 9009
 lines = ssc.socketTextStream("localhost",9009)
