@@ -1,0 +1,5 @@
+1. ('clinton', 'obama') most similar ('gwbush', 'reagan') least similar
+2. ('clinton', 'obama') most similar ('bush', 'obama') least similar
+3. ('clinton', 'obama') most similar ('gwbush', 'reagan') least similar
+4. ('clinton', 'obama') most similar ('gwbush', 'reagan') least similar
+I remove the punctuation and capitalization.
